@@ -8,9 +8,11 @@
 import acm.graphics.*;
 import acm.program.*;
 import acm.util.*;
+
 import java.awt.*;
-import java.io.IOException;
-import java.util.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Hangman extends ConsoleProgram {
 
