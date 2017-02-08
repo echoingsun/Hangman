@@ -24,12 +24,12 @@ public class Hangman extends ConsoleProgram {
 	private static final int N_GUESSES = 7;
 	/* The width and the height to make the karel image */
 	private static final int KAREL_SIZE = 150;
-	/* The number of pixels from the top of the canvas for karel */
+	/* The y-location to display karel */
 	private static final int KAREL_Y = 230;
 	/* The width and the height to make the parachute image */
 	private static final int PARACHUTE_WIDTH = 300;
 	private static final int PARACHUTE_HEIGHT = 130;
-	/* The number of pixels from the top of the canvas for parachute */
+	/* The y-location to display the parachute */
 	private static final int PARACHUTE_Y = 50;
 	/* The y-location to display the partially guessed string */
 	private static final int PARTIALLY_GUESSED_Y = 450;
