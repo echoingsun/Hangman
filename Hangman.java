@@ -11,7 +11,7 @@ import acm.util.*;
 import acmx.export.java.io.FileReader;
 import java.awt.*;
 import java.io.IOException;
-import java.util.List;
+import java.util.*;
 
 public class Hangman extends ConsoleProgram {
 
