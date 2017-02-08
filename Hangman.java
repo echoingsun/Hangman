@@ -49,7 +49,6 @@ public class Hangman extends ConsoleProgram {
 	 ***********************************************************/
 
 	public void run() {
-		// your code here..
 	}
 	
 	/**
