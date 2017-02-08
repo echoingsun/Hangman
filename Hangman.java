@@ -46,6 +46,8 @@ public class Hangman extends ConsoleProgram {
 	/* An object that can produce pseudo random numbers */
 	private RandomGenerator rg = new RandomGenerator();
 	
+	private GCanvas canvas = new GCanvas();
+	
 	/***********************************************************
 	 *                    Methods                              *
 	 ***********************************************************/
