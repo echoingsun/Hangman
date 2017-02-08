@@ -8,7 +8,6 @@
 import acm.graphics.*;
 import acm.program.*;
 import acm.util.*;
-import acmx.export.java.io.FileReader;
 import java.awt.*;
 import java.io.IOException;
 import java.util.*;
