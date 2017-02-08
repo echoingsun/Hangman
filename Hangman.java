@@ -11,8 +11,6 @@ import acm.util.*;
 
 import java.awt.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Hangman extends ConsoleProgram {
 
