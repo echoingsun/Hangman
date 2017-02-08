@@ -51,6 +51,7 @@ public class Hangman extends ConsoleProgram {
 	 ***********************************************************/
 
 	public void run() {
+		ArrayList<String> list = new ArrayList<String>();
 	}
 	
 	/**
