@@ -9,14 +9,8 @@ import acm.graphics.*;
 import acm.program.*;
 import acm.util.*;
 import acmx.export.java.io.FileReader;
-
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 public class Hangman extends ConsoleProgram {
