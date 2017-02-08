@@ -43,15 +43,15 @@ public class Hangman extends ConsoleProgram {
 	
 	/* An object that can produce pseudo random numbers */
 	private RandomGenerator rg = new RandomGenerator();
+	
+	/***********************************************************
+	 *                    Methods                              *
+	 ***********************************************************/
 
 	public void run() {
 		// your code here..
 	}
 	
-	/***********************************************************
-	 *                   Helper Methods                        *
-	 ***********************************************************/
-
 	/**
 	 * Method: Get Random Word
 	 * -------------------------
@@ -72,7 +72,5 @@ public class Hangman extends ConsoleProgram {
 		if(index == 9) return "ZIRCON";
 		throw new ErrorException("getWord: Illegal index");
 	}
-
-
 
 }
