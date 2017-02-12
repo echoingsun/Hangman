@@ -65,6 +65,8 @@ public class Hangman extends ConsoleProgram {
 		while(wrongGuesses < 7){
 			play();
 		}
+		println("You're completely hung.");
+		println("The word was: " + answer);
 	}
 	
 	private void play() {
@@ -77,12 +79,16 @@ public class Hangman extends ConsoleProgram {
 		for (int i = 0; i < len; i++){
 			guess = "";
 			char ch = answer.charAt(i);
-			if (Character.toString(ch) == guessChar){
+			if ((Character.toString(ch)).toLowerCase() == guessChar.toLowerCase()){
 				guess = guess + ch;
+				println("That guess is correct.");
 			} else {
 				guess = guess + '-';
+				wrongGuesses ++;
+				println("There is no " + Character.toUpperCase(ch) + "'s in the word.");
 			}
 		}
+		
 		
 		
 	}
