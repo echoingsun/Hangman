@@ -71,6 +71,7 @@ public class Hangman extends ConsoleProgram {
 	
 	private void play() {
 		int len = answer.length();
+		int charCount = 0;
 		
 		println("Your word now looks like this: " + guess);
 		println("You have " + (N_GUESSES - wrongGuesses) +" guesses left.");
@@ -80,14 +81,21 @@ public class Hangman extends ConsoleProgram {
 			guess = "";
 			char ch = answer.charAt(i);
 			if ((Character.toString(ch)).toLowerCase() == guessChar.toLowerCase()){
-				guess = guess + ch;
-				println("That guess is correct.");
+				guess = guess + ch;	
+				charCount ++;
 			} else {
 				guess = guess + '-';
-				wrongGuesses ++;
-				println("There is no " + guessChar.toUpperCase() + "'s in the word.");
+							
 			}
 		}
+		
+		if (charCount == 0){
+			println("There is no " + guessChar.toUpperCase() + "'s in the word.");
+			wrongGuesses ++;
+		} else {
+			println("That guess is correct.");
+		}
+		
 		
 		
 		
