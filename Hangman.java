@@ -52,6 +52,10 @@ public class Hangman extends ConsoleProgram {
 	private String guess = "";
 	private String answer = "";
 	
+	GImage bg = new GImage ("background.jpg");
+	GImage parachute = new GImage ("parachute.png");
+	GImage karel = new GImage ("karel.png");
+	
 	ArrayList<GLine> lines = new ArrayList<GLine>();
 
 	/***********************************************************
@@ -87,8 +91,15 @@ public class Hangman extends ConsoleProgram {
 		drawBackground();
 		drawParachute();
 		drawKarel();
+		drawLines();
 		
+		lines.add(e)
 		
+	}
+
+	private void drawLines() {
+		double x = parachute.getX();
+		GLine line01 = new GLine()
 		
 	}
 
@@ -97,13 +108,11 @@ public class Hangman extends ConsoleProgram {
 	}
 	
 	private void drawBackground(){
-		GImage bg = new GImage ("background.jpg");
 		bg.setSize(canvas.getWidth(), canvas.getHeight());
 		canvas.add(bg,0,0);
 	}
 	
 	private void drawParachute(){
-		GImage parachute = new GImage ("parachute.png");
 		parachute.setSize(PARACHUTE_WIDTH, PARACHUTE_HEIGHT);
 		double x = canvas.getWidth() * 0.5 - PARACHUTE_WIDTH * 0.5;
 
@@ -111,7 +120,6 @@ public class Hangman extends ConsoleProgram {
 	}
 	
 	private void drawKarel(){
-		GImage karel = new GImage ("karel.png");
 		karel.setSize(KAREL_SIZE, KAREL_SIZE);
 		double x = canvas.getWidth() * 0.5 - KAREL_SIZE * 0.5;
 		canvas.add(karel, x, KAREL_Y);
