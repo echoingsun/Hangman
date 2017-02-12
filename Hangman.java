@@ -81,8 +81,8 @@ public class Hangman extends ConsoleProgram {
 		guess = "";
 		for (int i = 0; i < len; i++){
 			char ch = answer.charAt(i);
-			
-			if (guessChar.toLowerCase() == Character.toString(ch).toLowerCase()){
+			String str = Character.toString(ch);
+			if (guessChar.toLowerCase() == str.toLowerCase()){
 				guess = guess + ch;
 				charCount ++;
 			} else {
