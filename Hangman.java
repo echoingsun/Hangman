@@ -51,13 +51,14 @@ public class Hangman extends ConsoleProgram {
 	private int wrongGuesses = 0;
 	private String guess = "";
 	private String answer = "";
+	private String wrongChars = "";
 	
 	GImage bg = new GImage ("background.jpg");
 	GImage parachute = new GImage ("parachute.png");
 	GImage karel = new GImage ("karel.png");
 	GImage karelFlipped = new GImage("karelFlipped.png");
 	GLabel guessLabel = new GLabel ("");
-	GLabel wrongChars = new GLabel ("");
+	GLabel wrongCharsLabel = new GLabel ("");
 	
 	ArrayList<GLine> lines = new ArrayList<GLine>();
 	ArrayList<GLine> linesBreak = new ArrayList<GLine>();
@@ -102,7 +103,7 @@ public class Hangman extends ConsoleProgram {
 		guessLabel.setColor(Color.BLACK);
 		canvas.add(guessLabel, canvas.getWidth() * 0.5 - guessLabel.getWidth() * 0.5, PARTIALLY_GUESSED_Y);
 		
-		wrongChars.setFont(INCORRECT_GUESSES_FONT);
+		wrongCharsLabel.setFont(INCORRECT_GUESSES_FONT);
 	}
 
 	private void setUp() {
@@ -187,7 +188,7 @@ public class Hangman extends ConsoleProgram {
 				guess = guess.substring(0,i) + ch + guess.substring(i+1);
 				charCount++;
 			} else {
-				wrongChars.setLabel(wrongChars + Character.toString(ch));
+				wrongChars = wrongChars + ch;
 			}
 
 		}
@@ -198,8 +199,9 @@ public class Hangman extends ConsoleProgram {
 			println("There are no " + guessChar.toUpperCase() + "'s in the word.");
 			wrongGuesses++;
 			
-			wrongChars.setLocation((canvas.getWidth() - wrongChars.getWidth()) * 0.5, INCORRECT_GUESSES_Y);
-			canvas.add(wrongChars);
+			wrongCharsLabel.setLabel(wrongChars);
+			wrongCharsLabel.setLocation((canvas.getWidth() - wrongCharsLabel.getWidth()) * 0.5, INCORRECT_GUESSES_Y);
+			canvas.add(wrongCharsLabel);
 			
 			canvas.remove(linesBreak.get(wrongGuesses - 1));
 		} else {
