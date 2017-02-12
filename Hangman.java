@@ -68,7 +68,8 @@ public class Hangman extends ConsoleProgram {
 	}
 	
 	private void play() {
-		
+		println("Your word now looks like this: " + guess);
+		println("You have " + (N_GUESSES - wrongGuesses) +" guesses left.");
 		
 		
 	}
