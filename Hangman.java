@@ -174,6 +174,7 @@ public class Hangman extends ConsoleProgram {
 		if (charCount == 0) {
 			println("There are no " + guessChar.toUpperCase() + "'s in the word.");
 			wrongGuesses++;
+			linesBreak.remove(wrongGuesses - 1);
 		} else {
 			println("That guess is correct.");
 		}
