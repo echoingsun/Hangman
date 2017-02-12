@@ -103,11 +103,12 @@ public class Hangman extends ConsoleProgram {
 		double x2 = canvas.getWidth();
 		double y2 = karel.getY();
 		
-		
 		for (int i = 0; i < N_GUESSES; i ++){
 			GLine line = new GLine(x+deltaX*i, y1, x2, y2);
+			canvas.add(line);
 			lines.add(line);
 		}
+		
 	}
 
 	public void init() {
