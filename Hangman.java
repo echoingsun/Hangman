@@ -73,18 +73,19 @@ public class Hangman extends ConsoleProgram {
 		int len = answer.length();
 		int charCount = 0;
 		
+		
 		println("Your word now looks like this: " + guess);
 		println("You have " + (N_GUESSES - wrongGuesses) +" guesses left.");
 		String guessChar = readLine("Your guess: ");
 		
 		for (int i = 0; i < len; i++){
-			guess = "";
+			
 			char ch = answer.charAt(i);
 			if ((Character.toString(ch)).toLowerCase() == guessChar.toLowerCase()){
-				guess = guess + ch;	
+				guess = "" + ch;	
 				charCount ++;
 			} else {
-				guess = guess + '-';
+				guess = "" + '-';
 							
 			}
 		}
