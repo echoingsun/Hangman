@@ -102,6 +102,7 @@ public class Hangman extends ConsoleProgram {
 		guessLabel.setColor(Color.BLACK);
 		canvas.add(guessLabel, canvas.getWidth() * 0.5 - guessLabel.getWidth() * 0.5, PARTIALLY_GUESSED_Y);
 		
+	
 	}
 
 	private void setUp() {
