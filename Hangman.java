@@ -69,11 +69,11 @@ public class Hangman extends ConsoleProgram {
 		
 		if (win()){
 			println("You win.");
-			println("The word was " + answer);
+			println("The word was " + answer + ".");
 		}
 		if (wrongGuesses == N_GUESSES){
 			println("You're completely hung.");
-			println("The word was: " + answer);
+			println("The word was: " + answer + ".");
 		}
 		
 	}
