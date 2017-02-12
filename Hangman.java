@@ -1,3 +1,4 @@
+
 /*
  * File: Hangman.java
  * ------------------
@@ -17,9 +18,9 @@ import java.util.List;
 public class Hangman extends ConsoleProgram {
 
 	/***********************************************************
-	 *              CONSTANTS                                  *
+	 * CONSTANTS *
 	 ***********************************************************/
-	
+
 	/* The number of guesses in one game of Hangman */
 	private static final int N_GUESSES = 7;
 	/* The width and the height to make the karel image */
@@ -38,89 +39,93 @@ public class Hangman extends ConsoleProgram {
 	/* The fonts of both labels */
 	private static final String PARTIALLY_GUESSED_FONT = "Courier-36";
 	private static final String INCORRECT_GUESSES_FONT = "Courier-26";
-	
+
 	/***********************************************************
-	 *              Instance Variables                         *
+	 * Instance Variables *
 	 ***********************************************************/
-	
+
 	/* An object that can produce pseudo random numbers */
 	private RandomGenerator rg = new RandomGenerator();
-	
-	private GCanvas canvas = new GCanvas();	
+
+	private GCanvas canvas = new GCanvas();
 	private int wrongGuesses = 0;
 	private String guess = "";
 	private String answer = "";
-	
+
 	/***********************************************************
-	 *                    Methods                              *
+	 * Methods *
 	 ***********************************************************/
-	
+
 	public void run() {
 		println("Welcome to Hangman");
 		answer = getRandomWord();
 		int len = answer.length();
-		for (int i = 0; i < len; i++){
+		for (int i = 0; i < len; i++) {
 			guess = guess + '-';
 		}
-		while(wrongGuesses < 7){
+		while (wrongGuesses < 7) {
 			play();
 		}
 		println("You're completely hung.");
 		println("The word was: " + answer);
 	}
-	
+
 	private void play() {
 		int len = answer.length();
 		int charCount = 0;
-		
-		
+
 		println("Your word now looks like this: " + guess);
-		println("You have " + (N_GUESSES - wrongGuesses) +" guesses left.");
+		println("You have " + (N_GUESSES - wrongGuesses) + " guesses left.");
 		String guessChar = readLine("Your guess: ");
-		
-		guess = "";
-		for (int i = 0; i < len; i++){
+
+		for (int i = 0; i < len; i++) {
 			char ch = answer.charAt(i);
 			String str = Character.toString(ch);
-			if (guessChar.toLowerCase().equals(str.toLowerCase())){
+			if (guessChar.toLowerCase().equals(str.toLowerCase())) {
 				guess = guess + ch;
-				charCount ++;
+				charCount++;
 			} else {
 				guess = guess + '-';
 			}
-			
+
 		}
-		
-		if (charCount == 0){
+
+		if (charCount == 0) {
 			println("There are no " + guessChar.toUpperCase() + "'s in the word.");
-			wrongGuesses ++;
+			wrongGuesses++;
 		} else {
 			println("That guess is correct.");
 		}
-		
-		
-		
-		
+
 	}
 
 	/**
-	 * Method: Get Random Word
-	 * -------------------------
-	 * This method returns a word to use in the hangman game. It randomly 
-	 * selects from among 10 choices.
+	 * Method: Get Random Word ------------------------- This method returns a
+	 * word to use in the hangman game. It randomly selects from among 10
+	 * choices.
 	 */
 	private String getRandomWord() {
 		int index = rg.nextInt(10);
-		if(index == 0) return "BUOY";
-		if(index == 1) return "COMPUTER";
-		if(index == 2) return "CONNOISSEUR";
-		if(index == 3) return "DEHYDRATE";
-		if(index == 4) return "FUZZY";
-		if(index == 5) return "HUBBUB";
-		if(index == 6) return "KEYHOLE";
-		if(index == 7) return "QUAGMIRE";
-		if(index == 8) return "SLITHER";
-		if(index == 9) return "ZIRCON";
+		if (index == 0)
+			return "BUOY";
+		if (index == 1)
+			return "COMPUTER";
+		if (index == 2)
+			return "CONNOISSEUR";
+		if (index == 3)
+			return "DEHYDRATE";
+		if (index == 4)
+			return "FUZZY";
+		if (index == 5)
+			return "HUBBUB";
+		if (index == 6)
+			return "KEYHOLE";
+		if (index == 7)
+			return "QUAGMIRE";
+		if (index == 8)
+			return "SLITHER";
+		if (index == 9)
+			return "ZIRCON";
 		throw new ErrorException("getWord: Illegal index");
 	}
 
