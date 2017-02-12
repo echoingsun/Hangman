@@ -63,7 +63,7 @@ public class Hangman extends ConsoleProgram {
 	ArrayList<GLine> lines = new ArrayList<GLine>();
 	ArrayList<GLine> linesBreak = new ArrayList<GLine>();
 	
-	ArrayList<String> lexicons = new ArrayList<String>();
+	ArrayList<String> lexicon = new ArrayList<String>();
 
 	/***********************************************************
 	 * Methods *
@@ -123,7 +123,7 @@ public class Hangman extends ConsoleProgram {
 			BufferedReader br = new BufferedReader(new FileReader("HangmanLexicon.txt"));
 			String readLine = br.readLine();
 			while (readLine != null){
-				lexicons.add(readLine);
+				lexicon.add(readLine);
 				readLine = br.readLine();
 			}
 			br.close();
@@ -240,8 +240,8 @@ public class Hangman extends ConsoleProgram {
 	 * choices.
 	 */
 	private String getRandomWord() {
-		int index = rg.nextInt(lexicons.size());
-		return lexicons.get(index);
+		int index = rg.nextInt(lexicon.size());
+		return lexicon.get(index);
 	}
 
 }
