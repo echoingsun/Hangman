@@ -55,6 +55,7 @@ public class Hangman extends ConsoleProgram {
 	GImage bg = new GImage ("background.jpg");
 	GImage parachute = new GImage ("parachute.png");
 	GImage karel = new GImage ("karel.png");
+	GImage karelFlipped = new GImage("karelFlipped.png");
 	
 	ArrayList<GLine> lines = new ArrayList<GLine>();
 	ArrayList<GLine> linesBreak = new ArrayList<GLine>();
@@ -82,7 +83,8 @@ public class Hangman extends ConsoleProgram {
 			println("The word was " + answer + ".");
 		}
 		if (wrongGuesses == N_GUESSES){
-			karel.setImage("karelFlipped.png");
+			canvas.remove(karel);
+			canvas.add(karelFlipped, canvas.getWidth() * 0.5 - KAREL_SIZE * 0.5, KAREL_Y);
 			println("You're completely hung.");
 			println("The word was: " + answer + ".");
 		}
@@ -142,6 +144,8 @@ public class Hangman extends ConsoleProgram {
 		karel.setSize(KAREL_SIZE, KAREL_SIZE);
 		double x = canvas.getWidth() * 0.5 - KAREL_SIZE * 0.5;
 		canvas.add(karel, x, KAREL_Y);
+		
+		karelFlipped.setSize(KAREL_SIZE, KAREL_SIZE);
 	}
 	
 	private boolean win() {
