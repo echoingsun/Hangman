@@ -82,6 +82,7 @@ public class Hangman extends ConsoleProgram {
 			println("The word was " + answer + ".");
 		}
 		if (wrongGuesses == N_GUESSES){
+			karel.setImage("karelFlipped.png");
 			println("You're completely hung.");
 			println("The word was: " + answer + ".");
 		}
