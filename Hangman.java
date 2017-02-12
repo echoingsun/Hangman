@@ -197,6 +197,7 @@ public class Hangman extends ConsoleProgram {
 			canvas.remove(linesBreak.get(wrongGuesses - 1));
 		} else {
 			println("That guess is correct.");
+			guessLabel.setLabel(guess);
 		}
 
 	}
