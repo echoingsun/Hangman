@@ -62,6 +62,7 @@ public class Hangman extends ConsoleProgram {
 		
 		drawBackground();
 		drawParachute();
+		drawKarel();
 		
 		
 		println("Welcome to Hangman");
