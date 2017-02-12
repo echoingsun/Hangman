@@ -188,7 +188,7 @@ public class Hangman extends ConsoleProgram {
 				guess = guess.substring(0,i) + ch + guess.substring(i+1);
 				charCount++;
 			} else {
-				wrongChars = wrongChars + ch;
+				wrongChars = wrongChars + guessChar;
 			}
 
 		}
