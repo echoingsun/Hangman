@@ -78,16 +78,17 @@ public class Hangman extends ConsoleProgram {
 		println("You have " + (N_GUESSES - wrongGuesses) +" guesses left.");
 		String guessChar = readLine("Your guess: ");
 		
+		guess = "";
 		for (int i = 0; i < len; i++){
-			
 			char ch = answer.charAt(i);
-			if ((Character.toString(ch)).toLowerCase() == guessChar.toLowerCase()){
-				guess = "" + ch;	
+			
+			if (guessChar.toLowerCase() == Character.toString(ch).toLowerCase()){
+				guess = guess + ch;
 				charCount ++;
 			} else {
-				guess = "" + '-';
-							
+				guess = guess + '-';
 			}
+			
 		}
 		
 		if (charCount == 0){
