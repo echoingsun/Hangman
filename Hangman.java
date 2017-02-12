@@ -78,6 +78,10 @@ public class Hangman extends ConsoleProgram {
 		
 	}
 
+	public void init() {
+		add (canvas);
+	}
+	
 	private boolean win() {
 		if (guess.equals(answer)) return true;
 		return false;
