@@ -76,6 +76,9 @@ public class Hangman extends ConsoleProgram {
 		for (int i = 0; i < len; i++) {
 			guess = guess + '-';
 		}
+		
+		addLabels();
+		
 		while (wrongGuesses < N_GUESSES && !win() ) {
 			play();
 		}
@@ -93,16 +96,19 @@ public class Hangman extends ConsoleProgram {
 		
 	}
 
+	private void addLabels() {
+		guessLabel.setLabel(guess);
+		guessLabel.setFont(PARTIALLY_GUESSED_FONT);
+		guessLabel.setColor(Color.BLACK);
+		canvas.add(guessLabel, canvas.getWidth() * 0.5 - guessLabel.getWidth() * 0.5, PARTIALLY_GUESSED_Y);
+		
+	}
+
 	private void setUp() {
 		drawBackground();
 		drawParachute();
 		drawKarel();
 		drawLines();
-		
-		guessLabel.setLabel(guess);
-		guessLabel.setFont(PARTIALLY_GUESSED_FONT);
-		guessLabel.setColor(Color.BLACK);
-		canvas.add(guessLabel, canvas.getWidth() * 0.5 - guessLabel.getWidth() * 0.5, PARTIALLY_GUESSED_Y);
 		
 		
 	}
