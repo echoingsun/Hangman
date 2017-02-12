@@ -85,7 +85,7 @@ public class Hangman extends ConsoleProgram {
 			} else {
 				guess = guess + '-';
 				wrongGuesses ++;
-				println("There is no " + Character.toUpperCase(ch) + "'s in the word.");
+				println("There is no " + guessChar.toUpperCase() + "'s in the word.");
 			}
 		}
 		
