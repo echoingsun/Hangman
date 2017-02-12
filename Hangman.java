@@ -102,7 +102,7 @@ public class Hangman extends ConsoleProgram {
 		guessLabel.setColor(Color.BLACK);
 		canvas.add(guessLabel, canvas.getWidth() * 0.5 - guessLabel.getWidth() * 0.5, PARTIALLY_GUESSED_Y);
 		
-	
+		wrongChars.setFont(INCORRECT_GUESSES_FONT);
 	}
 
 	private void setUp() {
@@ -186,7 +186,9 @@ public class Hangman extends ConsoleProgram {
 			if (guessChar.toLowerCase().equals(str.toLowerCase())) {
 				guess = guess.substring(0,i) + ch + guess.substring(i+1);
 				charCount++;
-			} 
+			} else {
+				wrongChars.setLabel(wrongChars + Character.toString(ch));
+			}
 
 		}
 		
@@ -195,6 +197,10 @@ public class Hangman extends ConsoleProgram {
 		if (charCount == 0) {
 			println("There are no " + guessChar.toUpperCase() + "'s in the word.");
 			wrongGuesses++;
+			
+			wrongChars.setLocation((canvas.getWidth() - wrongChars.getWidth()) * 0.5, INCORRECT_GUESSES_Y);
+			canvas.add(wrongChars);
+			
 			canvas.remove(linesBreak.get(wrongGuesses - 1));
 		} else {
 			println("That guess is correct.");
