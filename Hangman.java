@@ -57,6 +57,11 @@ public class Hangman extends ConsoleProgram {
 	 ***********************************************************/
 
 	public void run() {
+		
+		drawBackground();
+		drawParachute();
+		
+		
 		println("Welcome to Hangman");
 		answer = getRandomWord();
 		int len = answer.length();
