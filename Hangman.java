@@ -187,9 +187,7 @@ public class Hangman extends ConsoleProgram {
 			if (guessChar.toLowerCase().equals(str.toLowerCase())) {
 				guess = guess.substring(0,i) + ch + guess.substring(i+1);
 				charCount++;
-			} else {
-				wrongChars = wrongChars + guessChar;
-			}
+			} 
 
 		}
 		
@@ -199,6 +197,8 @@ public class Hangman extends ConsoleProgram {
 			println("There are no " + guessChar.toUpperCase() + "'s in the word.");
 			wrongGuesses++;
 			
+		
+			wrongChars = wrongChars + guessChar;
 			wrongCharsLabel.setLabel(wrongChars);
 			wrongCharsLabel.setLocation((canvas.getWidth() - wrongCharsLabel.getWidth()) * 0.5, INCORRECT_GUESSES_Y);
 			canvas.add(wrongCharsLabel);
@@ -209,6 +209,11 @@ public class Hangman extends ConsoleProgram {
 			guessLabel.setLabel(guess);
 		}
 
+	}
+
+	private void updateWrongGuesses() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**
