@@ -59,7 +59,7 @@ public class Hangman extends ConsoleProgram {
 		println("Welcome to Hangman");
 		answer = getRandomWord();
 		int len = answer.length();
-		for (int i = 0; i < len-1; i++){
+		for (int i = 0; i < len; i++){
 			guess = guess + '-';
 		}
 		while(wrongGuesses < 7){
@@ -68,9 +68,21 @@ public class Hangman extends ConsoleProgram {
 	}
 	
 	private void play() {
+		int len = answer.length();
+		
 		println("Your word now looks like this: " + guess);
 		println("You have " + (N_GUESSES - wrongGuesses) +" guesses left.");
-		String ch = readLine("Your guess: ");
+		String guessChar = readLine("Your guess: ");
+		
+		for (int i = 0; i < len; i++){
+			guess = "";
+			char ch = answer.charAt(i);
+			if (Character.toString(ch) == guessChar){
+				guess = guess + ch;
+			} else {
+				guess = guess + '-';
+			}
+		}
 		
 		
 	}
