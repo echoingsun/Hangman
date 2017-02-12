@@ -52,7 +52,7 @@ public class Hangman extends ConsoleProgram {
 	private String guess = "";
 	private String answer = "";
 	
-	ArrayList<GLine> myArrayList = new ArrayList<GLine>();
+	ArrayList<GLine> lines = new ArrayList<GLine>();
 
 	/***********************************************************
 	 * Methods *
@@ -60,10 +60,7 @@ public class Hangman extends ConsoleProgram {
 
 	public void run() {
 		
-		drawBackground();
-		drawParachute();
-		drawKarel();
-		
+		setUp();
 		
 		println("Welcome to Hangman");
 		answer = getRandomWord();
@@ -83,6 +80,15 @@ public class Hangman extends ConsoleProgram {
 			println("You're completely hung.");
 			println("The word was: " + answer + ".");
 		}
+		
+	}
+
+	private void setUp() {
+		drawBackground();
+		drawParachute();
+		drawKarel();
+		
+		
 		
 	}
 
