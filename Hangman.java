@@ -177,7 +177,7 @@ public class Hangman extends ConsoleProgram {
 		
 		
 		String guessChar = readLine("Your guess: ");
-		while (guessChar.length() > 1){
+		while (guessChar.length() != 1){
 			guessChar = readLine("Please enter only ONE letter: ");
 		}
 
