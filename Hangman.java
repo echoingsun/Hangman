@@ -87,7 +87,12 @@ public class Hangman extends ConsoleProgram {
 			} 
 
 		}
-
+		
+		if (guess.equals(answer)){
+			println("You win.");
+			println("The word was " + answer);
+		}
+		
 		if (charCount == 0) {
 			println("There are no " + guessChar.toUpperCase() + "'s in the word.");
 			wrongGuesses++;
