@@ -198,7 +198,7 @@ public class Hangman extends ConsoleProgram {
 			wrongGuesses++;
 			
 		
-			wrongChars = wrongChars + guessChar;
+			wrongChars = (wrongChars + guessChar).toUpperCase();
 			wrongCharsLabel.setLabel(wrongChars);
 			wrongCharsLabel.setLocation((canvas.getWidth() - wrongCharsLabel.getWidth()) * 0.5, INCORRECT_GUESSES_Y);
 			canvas.add(wrongCharsLabel);
