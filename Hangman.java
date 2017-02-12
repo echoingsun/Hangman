@@ -102,7 +102,7 @@ public class Hangman extends ConsoleProgram {
 		guessLabel.setLabel(guess);
 		guessLabel.setFont(PARTIALLY_GUESSED_FONT);
 		guessLabel.setColor(Color.BLACK);
-		canvas.add(guessLabel, canvas.getWidth() * 0.5 - KAREL_SIZE * 0.5, PARTIALLY_GUESSED_Y);
+		canvas.add(guessLabel, canvas.getWidth() * 0.5 - guessLabel.getWidth() * 0.5, PARTIALLY_GUESSED_Y);
 		
 		
 	}
