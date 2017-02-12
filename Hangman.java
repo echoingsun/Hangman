@@ -62,6 +62,8 @@ public class Hangman extends ConsoleProgram {
 	
 	ArrayList<GLine> lines = new ArrayList<GLine>();
 	ArrayList<GLine> linesBreak = new ArrayList<GLine>();
+	
+	ArrayList<String> lexicons = new ArrayList<String>();
 
 	/***********************************************************
 	 * Methods *
@@ -107,11 +109,27 @@ public class Hangman extends ConsoleProgram {
 	}
 
 	private void setUp() {
+		openFile();
+		
 		drawBackground();
 		drawParachute();
 		drawKarel();
 		drawLines();
 		
+	}
+
+	private void openFile() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("HangmanLexicon.txt"));
+			String readLine = br.readLine();
+			while (readLine != null){
+				lexicons.add(readLine);
+				readLine = br.readLine();
+			}
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -222,28 +240,8 @@ public class Hangman extends ConsoleProgram {
 	 * choices.
 	 */
 	private String getRandomWord() {
-		int index = rg.nextInt(10);
-		if (index == 0)
-			return "BUOY";
-		if (index == 1)
-			return "COMPUTER";
-		if (index == 2)
-			return "CONNOISSEUR";
-		if (index == 3)
-			return "DEHYDRATE";
-		if (index == 4)
-			return "FUZZY";
-		if (index == 5)
-			return "HUBBUB";
-		if (index == 6)
-			return "KEYHOLE";
-		if (index == 7)
-			return "QUAGMIRE";
-		if (index == 8)
-			return "SLITHER";
-		if (index == 9)
-			return "ZIRCON";
-		throw new ErrorException("getWord: Illegal index");
+		int index = rg.nextInt(lexicons.size());
+		return lexicons.get(index);
 	}
 
 }
