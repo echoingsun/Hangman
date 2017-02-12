@@ -56,8 +56,8 @@ public class Hangman extends ConsoleProgram {
 	GImage parachute = new GImage ("parachute.png");
 	GImage karel = new GImage ("karel.png");
 	GImage karelFlipped = new GImage("karelFlipped.png");
-	GLabel guessLabel = new GLabel ("");
-	GLabel wrongChars = new GLabel ("");
+	GLabel guessLabel = null;
+	GLabel wrongChars = null;
 	
 	ArrayList<GLine> lines = new ArrayList<GLine>();
 	ArrayList<GLine> linesBreak = new ArrayList<GLine>();
