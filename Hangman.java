@@ -93,14 +93,21 @@ public class Hangman extends ConsoleProgram {
 		drawKarel();
 		drawLines();
 		
-		lines.add(e)
 		
 	}
 
 	private void drawLines() {
 		double x = parachute.getX();
-		GLine line01 = new GLine()
+		double deltaX = PARACHUTE_WIDTH / (N_GUESSES - 1);
+		double y1 = parachute.getY() + PARACHUTE_HEIGHT;
+		double x2 = canvas.getWidth();
+		double y2 = karel.getY();
 		
+		
+		for (int i = 0; i < N_GUESSES; i ++){
+			GLine line = new GLine(x+deltaX*i, y1, x2, y2);
+			lines.add(line);
+		}
 	}
 
 	public void init() {
