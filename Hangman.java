@@ -56,6 +56,8 @@ public class Hangman extends ConsoleProgram {
 	GImage parachute = new GImage ("parachute.png");
 	GImage karel = new GImage ("karel.png");
 	GImage karelFlipped = new GImage("karelFlipped.png");
+	GLabel guessLabel = new GLabel ("");
+	GLabel wrongChars = new GLabel ("");
 	
 	ArrayList<GLine> lines = new ArrayList<GLine>();
 	ArrayList<GLine> linesBreak = new ArrayList<GLine>();
@@ -96,6 +98,10 @@ public class Hangman extends ConsoleProgram {
 		drawParachute();
 		drawKarel();
 		drawLines();
+		
+		guessLabel.setLabel(guess);
+		guessLabel.setFont(PARTIALLY_GUESSED_FONT);
+		canvas.add(guessLabel, canvas.getWidth() * 0.5 - KAREL_SIZE * 0.5, PARTIALLY_GUESSED_Y);
 		
 		
 	}
@@ -159,6 +165,8 @@ public class Hangman extends ConsoleProgram {
 
 		println("Your word now looks like this: " + guess);
 		println("You have " + (N_GUESSES - wrongGuesses) + " guesses left.");
+		
+		
 		String guessChar = readLine("Your guess: ");
 		while (guessChar.length() > 1){
 			guessChar = readLine("Please enter only ONE letter: ");
