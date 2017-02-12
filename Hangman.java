@@ -91,6 +91,7 @@ public class Hangman extends ConsoleProgram {
 		println("You have " + (N_GUESSES - wrongGuesses) + " guesses left.");
 		String guessChar = readLine("Your guess: ");
 
+
 		for (int i = 0; i < len; i++) {
 			char ch = answer.charAt(i);
 			String str = Character.toString(ch);
