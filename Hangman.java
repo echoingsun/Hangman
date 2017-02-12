@@ -90,7 +90,9 @@ public class Hangman extends ConsoleProgram {
 		println("Your word now looks like this: " + guess);
 		println("You have " + (N_GUESSES - wrongGuesses) + " guesses left.");
 		String guessChar = readLine("Your guess: ");
-
+		while (guessChar.length() > 1){
+			guessChar = readLine("Please enter only ONE letter: ");
+		}
 
 		for (int i = 0; i < len; i++) {
 			char ch = answer.charAt(i);
