@@ -46,16 +46,33 @@ public class Hangman extends ConsoleProgram {
 	/* An object that can produce pseudo random numbers */
 	private RandomGenerator rg = new RandomGenerator();
 	
-	private GCanvas canvas = new GCanvas();
+	private GCanvas canvas = new GCanvas();	
+	private int wrongGuesses = 0;
+	private String guess = "";
+	private String answer = "";
 	
 	/***********************************************************
 	 *                    Methods                              *
 	 ***********************************************************/
 	
 	public void run() {
-		// shall we?
+		println("Welcome to Hangman");
+		answer = getRandomWord();
+		int len = answer.length();
+		for (int i = 0; i < len-1; i++){
+			guess = guess + '-';
+		}
+		while(wrongGuesses < 7){
+			play();
+		}
 	}
 	
+	private void play() {
+		
+		
+		
+	}
+
 	/**
 	 * Method: Get Random Word
 	 * -------------------------
