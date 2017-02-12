@@ -51,6 +51,8 @@ public class Hangman extends ConsoleProgram {
 	private int wrongGuesses = 0;
 	private String guess = "";
 	private String answer = "";
+	
+	ArrayList<GLine> myArrayList = new ArrayList<GLine>();
 
 	/***********************************************************
 	 * Methods *
@@ -99,6 +101,13 @@ public class Hangman extends ConsoleProgram {
 		double x = canvas.getWidth() * 0.5 - PARACHUTE_WIDTH * 0.5;
 
 		canvas.add(parachute, x, PARACHUTE_Y);
+	}
+	
+	private void drawKarel(){
+		GImage karel = new GImage ("karel.png");
+		karel.setSize(KAREL_SIZE, KAREL_SIZE);
+		double x = canvas.getWidth() * 0.5 - KAREL_SIZE * 0.5;
+		canvas.add(karel, x, KAREL_Y);
 	}
 	
 	private boolean win() {
