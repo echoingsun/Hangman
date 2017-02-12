@@ -57,6 +57,7 @@ public class Hangman extends ConsoleProgram {
 	GImage karel = new GImage ("karel.png");
 	
 	ArrayList<GLine> lines = new ArrayList<GLine>();
+	ArrayList<GLine> lines_reverse = new ArrayList<GLine>();
 
 	/***********************************************************
 	 * Methods *
@@ -108,6 +109,15 @@ public class Hangman extends ConsoleProgram {
 			canvas.add(line);
 			lines.add(line);
 		}
+		
+		lines_reverse.add(lines.get(6));
+		lines_reverse.add(lines.get(0));
+		lines_reverse.add(lines.get(5));
+		lines_reverse.add(lines.get(1));
+		lines_reverse.add(lines.get(4));
+		lines_reverse.add(lines.get(2));
+		lines_reverse.add(lines.get(3));
+		
 		
 	}
 
