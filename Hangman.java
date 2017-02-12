@@ -100,7 +100,7 @@ public class Hangman extends ConsoleProgram {
 		double x = parachute.getX();
 		double deltaX = PARACHUTE_WIDTH / (N_GUESSES - 1);
 		double y1 = parachute.getY() + PARACHUTE_HEIGHT;
-		double x2 = canvas.getWidth();
+		double x2 = canvas.getWidth() * 0.5;
 		double y2 = karel.getY();
 		
 		for (int i = 0; i < N_GUESSES; i ++){
