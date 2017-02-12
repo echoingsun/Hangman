@@ -97,8 +97,8 @@ public class Hangman extends ConsoleProgram {
 		GImage parachute = new GImage ("parachute.png");
 		parachute.setSize(PARACHUTE_WIDTH, PARACHUTE_HEIGHT);
 		double x = canvas.getWidth() * 0.5 - PARACHUTE_WIDTH * 0.5;
-		double y = canvas.getHeight() * 0.5 - PARACHUTE_HEIGHT * 0.5;
-		canvas.add(parachute, x, y);
+
+		canvas.add(parachute, x, PARACHUTE_Y);
 	}
 	
 	private boolean win() {
