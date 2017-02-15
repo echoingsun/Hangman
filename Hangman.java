@@ -201,6 +201,11 @@ public class Hangman extends ConsoleProgram {
 		boolean notValid = notDigit || notLetter;
 		while (notValid){
 			guessChar = readLine("Please enter only ONE LETTER: ");
+			
+			// Update booleans.
+			notDigit = guessChar.length() != 1;
+			notLetter = guessChar.length() == 1 && (guessChar.charAt(0) <'A' || (guessChar.charAt(0) > 'Z' && guessChar.charAt(0) < 'a') || guessChar.charAt(0) > 'z');
+			notValid = notDigit || notLetter;
 		}
 
 		for (int i = 0; i < len; i++) {
