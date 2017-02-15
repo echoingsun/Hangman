@@ -195,6 +195,9 @@ public class Hangman extends ConsoleProgram {
 		
 		
 		String guessChar = readLine("Your guess: ");
+		
+		boolean notDigit = guessChar.length() != 1;
+		boolean notLetter = guessChar.length() == 1 && ((guessChar.charAt(0) <'A' || (guessChar.charAt(0) > 'Z' && guessChar.charAt(0) < 'a')) || (guessChar.charAt(0) > 'z'));
 		while (guessChar.length() != 1){
 			guessChar = readLine("Please enter only ONE letter: ");
 		}
