@@ -62,11 +62,13 @@ public class Hangman extends ConsoleProgram {
 	private GImage karel = new GImage ("karel.png");
 	private GImage karelFlipped = new GImage("karelFlipped.png");
 
+	// Define two arraylists to include the lines connected to the parachute.
+	// One is for drawing the lines in order, the other is for breaking them in order.
+	private ArrayList<GLine> lines = new ArrayList<GLine>();
+	private ArrayList<GLine> linesBreak = new ArrayList<GLine>();
 	
-	ArrayList<GLine> lines = new ArrayList<GLine>();
-	ArrayList<GLine> linesBreak = new ArrayList<GLine>();
-	
-	ArrayList<String> lexicon = new ArrayList<String>();
+	// Create the Arraylist and import the lexicon into it.
+	private ArrayList<String> lexicon = new ArrayList<String>();
 
 	/***********************************************************
 	 * Methods *
