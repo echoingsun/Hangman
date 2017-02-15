@@ -47,18 +47,21 @@ public class Hangman extends ConsoleProgram {
 	/* An object that can produce pseudo random numbers */
 	private RandomGenerator rg = new RandomGenerator();
 
+	// Instance variables that are going to be called throughout the program:
 	private GCanvas canvas = new GCanvas();
-	private int wrongGuesses = 0;
-	private String guess = "";
-	private String answer = "";
-	private String wrongChars = "";
+	private int wrongGuesses = 0; // Total number of wrong guesses. Initialized as 0.
+	private String guess = ""; // The result of the player's guess. To be initialized when one random word is generated for the game, and updated whenever player makes a guess.
+	private String answer = ""; // aka the word generated at the beginning of the game.
+	private String wrongChars = ""; // Shows on the canvas all the previous wrong guesses.
+	private GLabel guessLabel = new GLabel (""); // Shows the value of "guess" on the canvas.
+	private GLabel wrongCharsLabel = new GLabel (""); // Shows the value of "wrongChars" on the canvas.
 	
-	GImage bg = new GImage ("background.jpg");
-	GImage parachute = new GImage ("parachute.png");
-	GImage karel = new GImage ("karel.png");
-	GImage karelFlipped = new GImage("karelFlipped.png");
-	GLabel guessLabel = new GLabel ("");
-	GLabel wrongCharsLabel = new GLabel ("");
+	// Import and define the images to be shown on the canvas.
+	private GImage bg = new GImage ("background.jpg");
+	private GImage parachute = new GImage ("parachute.png");
+	private GImage karel = new GImage ("karel.png");
+	private GImage karelFlipped = new GImage("karelFlipped.png");
+
 	
 	ArrayList<GLine> lines = new ArrayList<GLine>();
 	ArrayList<GLine> linesBreak = new ArrayList<GLine>();
@@ -71,11 +74,16 @@ public class Hangman extends ConsoleProgram {
 
 	public void run() {
 		
+		// Set up the canvas and all the images needed for the game.
 		setUp();
 		
+		// Introduce the player to the game and randomly generate a word for guess.
+		// For a single game, the length of the given word is determined.
 		println("Welcome to Hangman");
-		answer = getRandomWord();
+		answer = getRandomWord();		
 		int len = answer.length();
+		
+		
 		for (int i = 0; i < len; i++) {
 			guess = guess + '-';
 		}
