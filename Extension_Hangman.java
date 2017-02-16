@@ -43,7 +43,7 @@ public class Extension_Hangman extends ConsoleProgram {
 	private static final String PARTIALLY_GUESSED_FONT = "Courier-36";
 	private static final String INCORRECT_GUESSES_FONT = "Courier-26";
 	/* The total number of turns a player can play */
-	private static final int G_TURNS = 3;
+	private static final int G_TURNS = 1;
 	/* Time interval between printing one line and another */
 	private static final int PRINTLN_DELAY = 400;
 	/* Time interval between one game and another */
