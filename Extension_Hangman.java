@@ -163,6 +163,8 @@ public class Extension_Hangman extends ConsoleProgram {
 			canvas.add(karelFlipped, canvas.getWidth() * 0.5 - KAREL_SIZE * 0.5, KAREL_Y);
 			println("You're completely hung.");
 			println("The word was: " + answer + ".");
+			println("");
+			pause(PRINTLN_DELAY);
 		}
 
 	}
