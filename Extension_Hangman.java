@@ -355,20 +355,12 @@ public class Extension_Hangman extends ConsoleProgram {
 			println("There are no " + guessChar.toUpperCase() + "'s in the word.");
 			wrongGuesses++; // One more wrong guess.
 
-			wrongChars = (wrongChars + guessChar).toUpperCase(); // Update
-																	// string
-																	// wrongChars
-																	// to
-																	// include
-																	// all
-																	// incorrect
-																	// guesses.
-			wrongCharsLabel.setLabel(wrongChars); // Set the label value to be
-													// string wrong
-			wrongCharsLabel.setLocation((canvas.getWidth() - wrongCharsLabel.getWidth()) * 0.5, INCORRECT_GUESSES_Y); // It
-																														// should
-																														// be
-																														// repositioned.
+			// Update wrongChars to include all incorrect guesses.
+			wrongChars = (wrongChars + guessChar).toUpperCase(); 
+			// Set the label value to be string wrongChars
+			wrongCharsLabel.setLabel(wrongChars); 
+			// It should be repositioned.
+			wrongCharsLabel.setLocation((canvas.getWidth() - wrongCharsLabel.getWidth()) * 0.5, INCORRECT_GUESSES_Y); 
 			canvas.add(wrongCharsLabel); // Re-add label to canvas.
 
 			// The first wrong guess will cause the rightmost line to break,
