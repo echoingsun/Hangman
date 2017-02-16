@@ -1,9 +1,8 @@
 
 /*
- * File: Hangman.java
+ * File: Extension_Hangman.java
  * ------------------
- * This program will eventually play the Hangman game from
- * Assignment #4.
+ * This program improves some UX of the game Hangman.
  */
 
 import acm.graphics.*;
