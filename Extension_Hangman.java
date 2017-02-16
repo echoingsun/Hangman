@@ -127,7 +127,12 @@ public class Extension_Hangman extends ConsoleProgram {
 	}
 
 	private void playOneGame() {
-		wrongGuesses =0; // Initialize the value of wrong guesses back to 0.
+		
+		// Initialize the variables before each game:
+		wrongGuesses = 0;
+		guess = ""; 
+		answer = ""; 
+		wrongChars = ""; 
 		canvas.removeAll(); // Wipe everything out of the previous game.
 		
 		setUp();// Set up the canvas and all the images needed for the game.
