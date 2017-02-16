@@ -38,6 +38,8 @@ public class Extension_Hangman extends ConsoleProgram {
 	/* The fonts of both labels */
 	private static final String PARTIALLY_GUESSED_FONT = "Courier-36";
 	private static final String INCORRECT_GUESSES_FONT = "Courier-26";
+	/* The total number of turns a player can play */
+	private static final int G_TURNS = 3;
 
 	/***********************************************************
 	 * Instance Variables *
@@ -54,6 +56,7 @@ public class Extension_Hangman extends ConsoleProgram {
 	private String wrongChars = ""; // Shows on the canvas all the previous wrong guesses.
 	private GLabel guessLabel = new GLabel (""); // Shows the value of "guess" on the canvas.
 	private GLabel wrongCharsLabel = new GLabel (""); // Shows the value of "wrongChars" on the canvas.
+	private int turnsLeft = G_TURNS; // Shows how many more turns player can play.
 	
 	// Import and define the images to be shown on the canvas.
 	private GImage bg = new GImage ("background.jpg");
