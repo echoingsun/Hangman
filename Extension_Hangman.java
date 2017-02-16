@@ -5,6 +5,7 @@
  * This program improves some UX of the game Hangman:
  * (1) Add sound effects.
  * (2) Allow player to play G_TURNS of games.
+ * (3) Karel free falls when player loses all the games.
  */
 
 import acm.graphics.*;
