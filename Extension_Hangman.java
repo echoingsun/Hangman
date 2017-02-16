@@ -117,9 +117,10 @@ public class Extension_Hangman extends ConsoleProgram {
 	
 
 	private void killKarel() {
-		karelFlipped.move(0, 30);
-		pause(100);
-		
+		while (true){
+			karelFlipped.move(0, 30);
+			pause(100);
+		}		
 	}
 
 
