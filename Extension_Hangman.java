@@ -94,7 +94,7 @@ public class Extension_Hangman extends ConsoleProgram {
 	public void run() {
 		
 		introduce();
-		canvas.getMouseListeners();
+		
 		while (mouseClicked == 1 && turnsLeft > 0) {
 			playOneGame();
 			println("Now you only have " + turnsLeft + " turns left.");
@@ -105,17 +105,6 @@ public class Extension_Hangman extends ConsoleProgram {
 
 	}
 	
-	public void mouseClicked(MouseEvent e){
-		if (mouseClicked ==0){
-			double x = e.getX();
-			double y = e.getY();
-			if (canvas.getElementAt(x,y) == karel){
-				mouseClicked = 1;
-			}
-		}
-		
-		
-	}
 
 	private void introduce() {
 		println("Welcome to Hangman!");
@@ -135,7 +124,6 @@ public class Extension_Hangman extends ConsoleProgram {
 		println("Save Karel!");	
 		println("");
 		pause(PRINTLN_DELAY);
-		println("Click on Karel to start.");
 	}
 
 	private void playOneGame() {
