@@ -70,7 +70,7 @@ public class Extension_Hangman extends ConsoleProgram {
 														// canvas.
 	private int turnsLeft = G_TURNS; // Shows how many more turns player can
 										// play.
-	private int mouseClicked = 0;
+	
 
 	// Import and define the images to be shown on the canvas.
 	private GImage bg = new GImage("background.jpg");
@@ -95,7 +95,7 @@ public class Extension_Hangman extends ConsoleProgram {
 		
 		introduce();
 		
-		while (mouseClicked == 1 && turnsLeft > 0) {
+		while (turnsLeft > 0) {
 			playOneGame();
 			println("Now you only have " + turnsLeft + " turns left.");
 		}
