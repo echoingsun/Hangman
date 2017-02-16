@@ -48,6 +48,10 @@ public class Extension_Hangman extends ConsoleProgram {
 	private static final int PRINTLN_DELAY = 400;
 	/* Time interval between one game and another */
 	private static final int GAME_DELAY = 1000;
+	/* Time interval of karel falling */
+	private static final int FALL_DELAY = 80;
+	/* Falling speed of karel */
+	private static final int FALL_SPEED = 30;
 
 	/***********************************************************
 	 * Instance Variables *
@@ -118,8 +122,8 @@ public class Extension_Hangman extends ConsoleProgram {
 
 	private void killKarel() {
 		while (true){
-			karelFlipped.move(0, 30);
-			pause(100);
+			karelFlipped.move(0, FALL_SPEED);
+			pause(FALL_DELAY);
 		}		
 	}
 
