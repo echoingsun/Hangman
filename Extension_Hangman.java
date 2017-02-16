@@ -127,7 +127,9 @@ public class Extension_Hangman extends ConsoleProgram {
 	}
 
 	private void playOneGame() {
-		canvas.removeAll(); // Wipe everything out of the previous game.		
+		wrongGuesses =0; // Initialize the value of wrong guesses back to 0.
+		canvas.removeAll(); // Wipe everything out of the previous game.
+		
 		setUp();// Set up the canvas and all the images needed for the game.
 
 		// Introduce the player to the game and randomly generate a word for
