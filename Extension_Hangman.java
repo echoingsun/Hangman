@@ -40,6 +40,8 @@ public class Extension_Hangman extends ConsoleProgram {
 	private static final String INCORRECT_GUESSES_FONT = "Courier-26";
 	/* The total number of turns a player can play */
 	private static final int G_TURNS = 3;
+	/* Time interval between printing one line and another */
+	private static final int PRINTLN_DELAY = 50;
 
 	/***********************************************************
 	 * Instance Variables *
@@ -89,17 +91,27 @@ public class Extension_Hangman extends ConsoleProgram {
 
 	public void run() {
 		
-		println("Welcome to Hangman!");
-		println("You will play " + G_TURNS + " games of Hangman.");
-		println("In each game, you will have " + N_GUESSES + " chances to guess.");
-		println("If you run out of guesses, you lose the game,");
-		println("and poor Karel will fall...");
-		println("Save Karel!");
+		introduce();		
 		while (turnsLeft > 0) {
 			playOneGame();
 			
 		}
 
+	}
+
+	private void introduce() {
+		println("Welcome to Hangman!");
+		pause(PRINTLN_DELAY);
+		println("You will play " + G_TURNS + " games of Hangman.");
+		pause(PRINTLN_DELAY);
+		println("In each game, you will have " + N_GUESSES + " chances to guess.");
+		pause(PRINTLN_DELAY);
+		println("If you run out of guesses, you lose the game,");
+		pause(PRINTLN_DELAY);
+		println("and poor Karel will fall...");
+		pause(PRINTLN_DELAY);
+		println("Save Karel!");
+		
 	}
 
 	private void playOneGame() {
