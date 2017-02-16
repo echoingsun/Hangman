@@ -290,15 +290,11 @@ public class Hangman extends ConsoleProgram {
 
 	}
 
-	private void updateWrongGuesses() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	/**
 	 * Method: Get Random Word ------------------------- This method returns a
-	 * word to use in the hangman game. It randomly selects from among 10
-	 * choices.
+	 * word to use in the hangman game. It randomly selects from among the 
+	 * arrayList "lexicon" that contains the "lexicon.txt".
 	 */
 	private String getRandomWord() {
 		int index = rg.nextInt(lexicon.size());
