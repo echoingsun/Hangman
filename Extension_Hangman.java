@@ -94,7 +94,7 @@ public class Extension_Hangman extends ConsoleProgram {
 		introduce();		
 		while (turnsLeft > 0) {
 			playOneGame();
-			
+			println()
 		}
 
 	}
@@ -108,10 +108,13 @@ public class Extension_Hangman extends ConsoleProgram {
 		pause(PRINTLN_DELAY);
 		println("If you run out of guesses, you lose the game,");
 		pause(PRINTLN_DELAY);
-		println("and poor Karel will fall...");
+		println("and poor Karel will fall but be revived;");
 		pause(PRINTLN_DELAY);
-		println("Save Karel!");
-		
+		println("But if you lose all the lives...");
+		pause(PRINTLN_DELAY);
+		println("T_T..............");
+		pause(PRINTLN_DELAY);
+		println("Save Karel!");		
 	}
 
 	private void playOneGame() {
