@@ -94,8 +94,11 @@ public class Extension_Hangman extends ConsoleProgram {
 		introduce();		
 		while (turnsLeft > 0) {
 			playOneGame();
-			println()
+			println("Now you only have " + turnsLeft + " turns left.");
 		}
+		println ("Argh.........");
+		pause(PRINTLN_DELAY);
+		println("You killed Karel!!!");
 
 	}
 
@@ -147,7 +150,7 @@ public class Extension_Hangman extends ConsoleProgram {
 			println("The word was " + answer + ".");
 		}
 		if (wrongGuesses == N_GUESSES) {
-			turnsLeft --;
+			turnsLeft --; // Player loses one turn.
 			canvas.remove(karel);
 			canvas.add(karelFlipped, canvas.getWidth() * 0.5 - KAREL_SIZE * 0.5, KAREL_Y);
 			println("You're completely hung.");
