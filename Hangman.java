@@ -234,7 +234,7 @@ public class Hangman extends ConsoleProgram {
 		int charCount = 0;
 
 		println("Your word now looks like this: " + guess);
-		println("You have " + (N_GUESSES - wrongGuesses) + " guesses left.");		
+		println("You have " + (N_GUESSES - wrongGuesses) + " guess(es) left.");		
 		
 		// Read what player enters.
 		String guessChar = readLine("Your guess: ");
