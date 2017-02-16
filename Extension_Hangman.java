@@ -9,6 +9,7 @@ import acm.graphics.*;
 import acm.program.*;
 import acm.util.*;
 
+import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.io.*;
@@ -79,6 +80,9 @@ public class Extension_Hangman extends ConsoleProgram {
 	private GImage parachute = new GImage("parachute.png");
 	private GImage karel = new GImage("karel.png");
 	private GImage karelFlipped = new GImage("karelFlipped.png");
+	
+	AudioClip wind = MediaTools.loadAudioClip("wind.au");
+	AudioClip breaks = MediaTools.loadAudioClip("breaks.au");
 
 	// Define two arraylists to include the lines connected to the parachute.
 	// One is for drawing the lines in order, the other is for breaking them in
@@ -129,6 +133,8 @@ public class Extension_Hangman extends ConsoleProgram {
 	}
 
 	private void playOneGame() {
+		
+		wind.loop();
 		
 		// Initialize the variables before each game:
 		wrongGuesses = 0;
@@ -371,6 +377,7 @@ public class Extension_Hangman extends ConsoleProgram {
 			// The first wrong guess will cause the rightmost line to break,
 			// that is, the first element in the linesBreak arraylist (index 0).
 			canvas.remove(linesBreak.get(wrongGuesses - 1));
+			breaks.play();
 
 		} else {
 			println("That guess is correct.");
