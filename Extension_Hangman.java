@@ -2,7 +2,9 @@
 /*
  * File: Extension_Hangman.java
  * ------------------
- * This program improves some UX of the game Hangman.
+ * This program improves some UX of the game Hangman:
+ * (1) Add sound effects.
+ * (2) Allow player to play G_TURNS of games.
  */
 
 import acm.graphics.*;
@@ -109,9 +111,17 @@ public class Extension_Hangman extends ConsoleProgram {
 		println ("Argh.........");
 		pause(PRINTLN_DELAY);
 		println("You killed Karel!!!");
+		killKarel();
 
 	}
 	
+
+	private void killKarel() {
+		karelFlipped.move(0, 30);
+		pause(100);
+		
+	}
+
 
 	private void introduce() {
 		println("Welcome to Hangman!");
