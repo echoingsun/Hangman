@@ -117,7 +117,8 @@ public class Extension_Hangman extends ConsoleProgram {
 		pause(PRINTLN_DELAY);
 		println("T_T..............");
 		pause(PRINTLN_DELAY);
-		println("Save Karel!");		
+		println("Save Karel!");	
+		println("");
 	}
 
 	private void playOneGame() {
