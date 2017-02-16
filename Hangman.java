@@ -254,6 +254,9 @@ public class Hangman extends ConsoleProgram {
 		for (int i = 0; i < len; i++) {
 			char ch = answer.charAt(i); // Scan each character in the given word.
 			String str = Character.toString(ch); // And make that character a string so that it can be compared.
+			
+			// If the validly entered string is the same as some of the characters in the word,
+			
 			if (guessChar.toLowerCase().equals(str.toLowerCase())) {
 				guess = guess.substring(0,i) + ch + guess.substring(i+1);
 				charCount++;
