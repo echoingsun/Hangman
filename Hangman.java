@@ -33,9 +33,9 @@ public class Hangman extends ConsoleProgram {
 	/* The y-location to display the parachute */
 	private static final int PARACHUTE_Y = 50;
 	/* The y-location to display the partially guessed string */
-	private static final int PARTIALLY_GUESSED_Y = 450;
+	private static final int PARTIALLY_GUESSED_Y = 430;
 	/* The y-location to display the incorrectly guessed letters */
-	private static final int INCORRECT_GUESSES_Y = 480;
+	private static final int INCORRECT_GUESSES_Y = 460;
 	/* The fonts of both labels */
 	private static final String PARTIALLY_GUESSED_FONT = "Courier-36";
 	private static final String INCORRECT_GUESSES_FONT = "Courier-26";
