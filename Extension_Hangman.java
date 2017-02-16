@@ -101,6 +101,7 @@ public class Extension_Hangman extends ConsoleProgram {
 		
 		introduce();
 		
+		wind.loop();
 		while (turnsLeft > 0) {
 			playOneGame();
 			
@@ -133,8 +134,6 @@ public class Extension_Hangman extends ConsoleProgram {
 	}
 
 	private void playOneGame() {
-		
-		wind.loop();
 		
 		// Initialize the variables before each game:
 		wrongGuesses = 0;
