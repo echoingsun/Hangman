@@ -142,19 +142,10 @@ public class Extension_Hangman extends ConsoleProgram {
 			guess = guess + '-';
 		}
 
-		// After generating the word, place the label onto the canvas.
-		addLabels();
-		
-		if (turnsLeft == G_TURNS){
-			println("You have " + turnsLeft + " turns left.");
-		} else if (turnsLeft < G_TURNS && turnsLeft > 1){
-			println("Now you have " + turnsLeft + " turns left.");
-		} else if (turnsLeft ==1){
-			println("Now you only have " + turnsLeft + " turn left.");
-		}
-		
+		addLabels();// After generating the word, place the label onto the canvas.		
+		showTurnsLeft(); // Tell the player how many more turns they have.		
 
-		// Player can play until guesses run out, or until they win.
+		// Game starts. Player can play until guesses run out, or until they win.
 		while (wrongGuesses < N_GUESSES && !win()) {
 			play();
 		}
@@ -173,6 +164,17 @@ public class Extension_Hangman extends ConsoleProgram {
 		}
 
 	}
+
+	private void showTurnsLeft() {
+		if (turnsLeft == G_TURNS){
+			println("You have " + turnsLeft + " turns left.");
+		} else if (turnsLeft < G_TURNS && turnsLeft > 1){
+			println("Now you have " + turnsLeft + " turns left.");
+		} else if (turnsLeft ==1){
+			println("Now you only have " + turnsLeft + " turn left.");
+		}		
+	}
+
 
 	/*
 	 * Method addLabels adds the initial value of the string guess (which is
