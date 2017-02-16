@@ -235,6 +235,11 @@ public class Extension_Hangman extends ConsoleProgram {
 	 * since later they will be removed from canvas separately.
 	 */
 	private void drawLines() {
+		
+		// Clear everything in the two lines arraylists before each game.
+		lines.clear();
+		linesBreak.clear();
+		
 		double x = parachute.getX();
 		double deltaX = PARACHUTE_WIDTH / (N_GUESSES - 1);
 		double y1 = parachute.getY() + PARACHUTE_HEIGHT;
