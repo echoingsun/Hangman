@@ -228,6 +228,9 @@ public class Hangman extends ConsoleProgram {
 	 */
 	private void play() {
 		int len = answer.length();
+		
+		// charCount changes if the player's guess matches at least one character in the word.
+		// It will be zero if player's got a wrong guess.
 		int charCount = 0;
 
 		println("Your word now looks like this: " + guess);
@@ -256,7 +259,8 @@ public class Hangman extends ConsoleProgram {
 			String str = Character.toString(ch); // And make that character a string so that it can be compared.
 			
 			// If the validly entered string is the same as some of the characters in the word,
-			
+			// string "guess" is updated to show that correct guess.
+			// charCount will no longer be zero.
 			if (guessChar.toLowerCase().equals(str.toLowerCase())) {
 				guess = guess.substring(0,i) + ch + guess.substring(i+1);
 				charCount++;
@@ -265,18 +269,20 @@ public class Hangman extends ConsoleProgram {
 		}
 		
 		
-		
+		// If player didn't get it right, then:
 		if (charCount == 0) {
 			println("There are no " + guessChar.toUpperCase() + "'s in the word.");
-			wrongGuesses++;
+			wrongGuesses++; // One more wrong guess.
+					
+			wrongChars = (wrongChars + guessChar).toUpperCase(); // Update string wrongChars to include all incorrect guesses.
+			wrongCharsLabel.setLabel(wrongChars); // Set the label value to be string wrong
+			wrongCharsLabel.setLocation((canvas.getWidth() - wrongCharsLabel.getWidth()) * 0.5, INCORRECT_GUESSES_Y); // It should be repositioned.
+			canvas.add(wrongCharsLabel); // Re-add label to canvas.
 			
-		
-			wrongChars = (wrongChars + guessChar).toUpperCase();
-			wrongCharsLabel.setLabel(wrongChars);
-			wrongCharsLabel.setLocation((canvas.getWidth() - wrongCharsLabel.getWidth()) * 0.5, INCORRECT_GUESSES_Y);
-			canvas.add(wrongCharsLabel);
-			
+			// The first wrong guess will cause the rightmost line to break,
+			// that is, the first element in the linesBreak arraylist (index 0).
 			canvas.remove(linesBreak.get(wrongGuesses - 1));
+			
 		} else {
 			println("That guess is correct.");
 			guessLabel.setLabel(guess);
