@@ -97,7 +97,7 @@ public class Extension_Hangman extends ConsoleProgram {
 		
 		while (turnsLeft > 0) {
 			playOneGame();
-			println("Now you only have " + turnsLeft + " turns left.");
+			
 		}
 		println ("Argh.........");
 		pause(PRINTLN_DELAY);
@@ -144,6 +144,15 @@ public class Extension_Hangman extends ConsoleProgram {
 
 		// After generating the word, place the label onto the canvas.
 		addLabels();
+		
+		if (turnsLeft == G_TURNS){
+			println("You have " + turnsLeft + " turns left.");
+		} else if (turnsLeft < G_TURNS && turnsLeft > 1){
+			println("Now you have " + turnsLeft + " turns left.");
+		} else if (turnsLeft ==1){
+			println("Now you only have " + turnsLeft + " turn left.");
+		}
+		
 
 		// Player can play until guesses run out, or until they win.
 		while (wrongGuesses < N_GUESSES && !win()) {
