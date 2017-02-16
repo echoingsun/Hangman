@@ -85,17 +85,20 @@ public class Hangman extends ConsoleProgram {
 		answer = getRandomWord();		
 		int len = answer.length();
 		
-		
+		// The initial value before guess would be many dashes '-'.
 		for (int i = 0; i < len; i++) {
 			guess = guess + '-';
 		}
 		
+		// After generating the word, place the label onto the canvas.
 		addLabels();
 		
+		// Player can play until guesses run out, or until they win.
 		while (wrongGuesses < N_GUESSES && !win() ) {
 			play();
 		}
 		
+		// Define the events on a win or a failure.
 		if (win()){
 			println("You win.");
 			println("The word was " + answer + ".");
@@ -109,6 +112,11 @@ public class Hangman extends ConsoleProgram {
 		
 	}
 
+	/*
+	 * Method addLabels adds the initial value of the string guess (which is "----...")
+	 * to the canvas below karel. The value of the string is updated through other methods
+	 * later on.
+	 */
 	private void addLabels() {
 		guessLabel.setLabel(guess);
 		guessLabel.setFont(PARTIALLY_GUESSED_FONT);
@@ -119,15 +127,19 @@ public class Hangman extends ConsoleProgram {
 	}
 
 	private void setUp() {
-		openFile();
+		openFile(); // import lexicon.txt
 		
-		drawBackground();
-		drawParachute();
-		drawKarel();
-		drawLines();
+		drawBackground(); // import the sky pic
+		drawParachute(); // import the parachute pic
+		drawKarel(); // place karel
+		drawLines(); // attach strings to karel and the parachute
 		
 	}
 
+	/*
+	 * Method openFile imports lexicon.txt into the string arraylist - 
+	 * lexicon.
+	 */
 	private void openFile() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("HangmanLexicon.txt"));
@@ -143,6 +155,11 @@ public class Hangman extends ConsoleProgram {
 		
 	}
 
+	/*
+	 * Method drawLines draws seven lines (strings attached to karel from the parachute).
+	 * Each line is also added to GLine arraylist lines as an object since
+	 * later they will be removed from canvas separately.
+	 */
 	private void drawLines() {
 		double x = parachute.getX();
 		double deltaX = PARACHUTE_WIDTH / (N_GUESSES - 1);
@@ -150,15 +167,20 @@ public class Hangman extends ConsoleProgram {
 		double x2 = canvas.getWidth() * 0.5;
 		double y2 = karel.getY();
 		
+		// Draw seven lines using the coordinates and intervals set above.
 		for (int i = 0; i < N_GUESSES; i ++){
 			GLine line = new GLine(x+deltaX*i, y1, x2, y2);
-			canvas.add(line);
-			lines.add(line);
+			canvas.add(line); // add lines to canvas.
+			lines.add(line); // add lines to arraylist "lines".
 		}
 		
-		linesBreak.add(lines.get(6));
-		linesBreak.add(lines.get(0));
-		linesBreak.add(lines.get(5));
+		// Since lines break in a different order from how they are added,
+		// add the lines to a different arraylist "linesBreak",
+		// rearranging the order into the right one in which they'll break,
+		// so that the rightmost line breaks first, then the leftmost one, etc.
+		linesBreak.add(lines.get(6)); // linesBreak(0)
+		linesBreak.add(lines.get(0)); // linesBreak(1)
+		linesBreak.add(lines.get(5)); // etc...
 		linesBreak.add(lines.get(1));
 		linesBreak.add(lines.get(4));
 		linesBreak.add(lines.get(2));
@@ -168,19 +190,19 @@ public class Hangman extends ConsoleProgram {
 	}
 
 	public void init() {
-		add (canvas);
+		add (canvas); // Initialize canvas.
 	}
 	
 	private void drawBackground(){
 		bg.setSize(canvas.getWidth(), canvas.getHeight());
-		canvas.add(bg,0,0);
+		canvas.add(bg,0,0); // Add bluesky image.
 	}
 	
 	private void drawParachute(){
 		parachute.setSize(PARACHUTE_WIDTH, PARACHUTE_HEIGHT);
 		double x = canvas.getWidth() * 0.5 - PARACHUTE_WIDTH * 0.5;
 
-		canvas.add(parachute, x, PARACHUTE_Y);
+		canvas.add(parachute, x, PARACHUTE_Y); // Add and center parachute.
 	}
 	
 	private void drawKarel(){
@@ -188,39 +210,50 @@ public class Hangman extends ConsoleProgram {
 		double x = canvas.getWidth() * 0.5 - KAREL_SIZE * 0.5;
 		canvas.add(karel, x, KAREL_Y);
 		
-		karelFlipped.setSize(KAREL_SIZE, KAREL_SIZE);
+		karelFlipped.setSize(KAREL_SIZE, KAREL_SIZE); // Add and center karel.
 	}
 	
+	/*
+	 * Boolean win sets the condition that stops the game once 
+	 * the player gets the right answer.
+	 */
 	private boolean win() {
 		if (guess.equals(answer)) return true;
 		return false;
 	}
 
+	/*
+	 * Method play defines the logic of play and the update principles
+	 * of the (instance) variables.
+	 */
 	private void play() {
 		int len = answer.length();
 		int charCount = 0;
 
 		println("Your word now looks like this: " + guess);
-		println("You have " + (N_GUESSES - wrongGuesses) + " guesses left.");
+		println("You have " + (N_GUESSES - wrongGuesses) + " guesses left.");		
 		
-		
+		// Read what player enters.
 		String guessChar = readLine("Your guess: ");
 		
-		boolean notDigit = guessChar.length() != 1;
+		// What player enters should be a single letter, therefore:
+		boolean moreDigit = guessChar.length() != 1; 
 		boolean notLetter = guessChar.length() == 1 && (guessChar.charAt(0) <'A' || (guessChar.charAt(0) > 'Z' && guessChar.charAt(0) < 'a') || guessChar.charAt(0) > 'z');
-		boolean notValid = notDigit || notLetter;
+		boolean notValid = moreDigit || notLetter;
+		
+		// While entry is not valid, ask the player to re-enter.
 		while (notValid){
 			guessChar = readLine("Please enter only ONE LETTER: ");
 			
-			// Update booleans.
-			notDigit = guessChar.length() != 1;
+			// Update booleans so that notValid will be rechecked at the start of the loop.
+			moreDigit = guessChar.length() != 1;
 			notLetter = guessChar.length() == 1 && (guessChar.charAt(0) <'A' || (guessChar.charAt(0) > 'Z' && guessChar.charAt(0) < 'a') || guessChar.charAt(0) > 'z');
-			notValid = notDigit || notLetter;
+			notValid = moreDigit || notLetter;
 		}
 
 		for (int i = 0; i < len; i++) {
-			char ch = answer.charAt(i);
-			String str = Character.toString(ch);
+			char ch = answer.charAt(i); // Scan each character in the given word.
+			String str = Character.toString(ch); // And make that character a string so that it can be compared.
 			if (guessChar.toLowerCase().equals(str.toLowerCase())) {
 				guess = guess.substring(0,i) + ch + guess.substring(i+1);
 				charCount++;
