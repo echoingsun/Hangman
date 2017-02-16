@@ -43,6 +43,8 @@ public class Extension_Hangman extends ConsoleProgram {
 	private static final int G_TURNS = 3;
 	/* Time interval between printing one line and another */
 	private static final int PRINTLN_DELAY = 400;
+	/* Time interval between one game and another */
+	private static final int GAME_DELAY = 1000;
 
 	/***********************************************************
 	 * Instance Variables *
@@ -169,7 +171,7 @@ public class Extension_Hangman extends ConsoleProgram {
 			println("You're completely hung.");
 			println("The word was: " + answer + ".");
 			println("");
-			pause(PRINTLN_DELAY);
+			pause(GAME_DELAY);
 		}
 
 	}
