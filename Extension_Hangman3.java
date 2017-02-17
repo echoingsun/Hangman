@@ -434,9 +434,10 @@ public class Extension_Hangman3 extends ConsoleProgram {
 	}
 
 	private void checkIfToGiveHint() {
-		// Set two conditions to decide if to given the player a hint.
+		// Set three conditions to decide if to given the player a hint.
 		// (1) When player arrives at the third last guess;
 		// (2) And player still hasn't got half the word right.
+		// (3) And player hasn't arrived at the n_GuessesMin'th game.
 		// Hint is only given once per game.
 		int n_CorrectGuesses = 0;
 		
@@ -454,7 +455,7 @@ public class Extension_Hangman3 extends ConsoleProgram {
 		
 		boolean giveHint = n_CorrectGuesses <= guess.length() / 2 && wrongGuesses == n_Guesses - 2;
 		
-		if (giveHint && hint == 0){
+		if (giveHint && hint == 0 && n_Guesses != n_GuessesMin){
 			
 			pause(PRINTLN_DELAY);
 			println ("Are you stuck? Here is a HINT for you.");
