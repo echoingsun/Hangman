@@ -21,7 +21,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Extension_Hangman3 extends ConsoleProgram {
+public class Extension_Hangman extends ConsoleProgram {
 
 	/***********************************************************
 	 * CONSTANTS *
