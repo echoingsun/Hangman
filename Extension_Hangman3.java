@@ -172,7 +172,7 @@ public class Extension_Hangman3 extends ConsoleProgram {
 		
 		setUp();// Set up the canvas and all the images needed for the game.
 
-		// Introduce the player to the game and randomly generate a word for
+		// Randomly generate a word for
 		// guess.
 		// For a single game, the length of the given word is determined.
 		
