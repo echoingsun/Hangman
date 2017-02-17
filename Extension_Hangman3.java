@@ -210,6 +210,7 @@ public class Extension_Hangman3 extends ConsoleProgram {
 			println("You win.");
 			println("The word was " + answer + ".");
 			println("");
+			pause(GAME_DELAY);
 		}
 		if (wrongGuesses == n_Guesses) {
 			turnsLeft --; // Player loses one turn.
