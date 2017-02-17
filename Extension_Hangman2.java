@@ -48,7 +48,7 @@ public class Extension_Hangman2 extends ConsoleProgram {
 	/* Time interval between printing one line and another */
 	private static final int PRINTLN_DELAY = 400;
 	/* Time interval between one game and another */
-	private static final int GAME_DELAY = 1000;
+	private static final int GAME_DELAY = 3000;
 	/* Time interval of karel falling */
 	private static final int FALL_DELAY = 80;
 	/* Falling speed of karel */
