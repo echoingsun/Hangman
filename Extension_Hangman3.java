@@ -128,6 +128,9 @@ public class Extension_Hangman3 extends ConsoleProgram {
 	
 
 	private void killKarel() {
+		canvas.remove(wrongCharsLabel);
+		canvas.remove(guessLabel);
+		
 		while (true){
 			parachute.move(0, -FALL_SPEED);
 			pause(FALL_DELAY);
