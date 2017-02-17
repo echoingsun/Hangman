@@ -339,8 +339,6 @@ public class Extension_Hangman2 extends ConsoleProgram {
 		// It will be zero if player's got a wrong guess.
 		int charCount = 0;
 
-		println("Your word now looks like this: " + guess);
-		println("You have " + (N_GUESSES - wrongGuesses) + " guess(es) left.");
 
 		// Read what player enters.
 		String guessChar = readLine("Your guess: ");
@@ -428,10 +426,22 @@ public class Extension_Hangman2 extends ConsoleProgram {
 		boolean giveHint = n_CorrectGuesses <= guess.length() / 2 && wrongGuesses == N_GUESSES - 2;
 		
 		if (giveHint && hint == 0){
+			
+			println ("Are you stuck? Here is a hint for you.");
 			// Randomly give a char that has not been guessed by the user.
 			int randomIndex = rg.nextInt(indicesUnguessed.size());
 			guess = guess.substring(0, randomIndex) + answer.charAt(randomIndex) + guess.substring(randomIndex + 1);
 			hint ++;
+			
+			println("Your word now looks like this: " + guess);
+			guessLabel.setLabel(guess);
+			
+			println("You have " + (N_GUESSES - wrongGuesses) + " guess(es) left.");
+		} else {
+
+			// If no hint is given, print regular messages.
+			println("Your word now looks like this: " + guess);
+			println("You have " + (N_GUESSES - wrongGuesses) + " guess(es) left.");
 		}
 		
 		
