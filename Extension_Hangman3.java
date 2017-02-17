@@ -82,6 +82,8 @@ public class Extension_Hangman3 extends ConsoleProgram {
 	private int turnsLeft = G_TURNS; // Shows how many more turns player can
 										// play.
 	private int hint = 0; // Holds the value of hints given per game.
+	private int gamesWon = 0; // Stores the value of games won by player out of G_TURNS.
+	private int n_Guesses = N_GUESSES - gamesWon; // This value will change if player wins games, to increase difficulty.
 	
 
 	// Import and define the images to be shown on the canvas.
@@ -180,7 +182,7 @@ public class Extension_Hangman3 extends ConsoleProgram {
 		showTurnsLeft(); // Tell the player how many more turns they have.		
 
 		// Game starts. Player can play until guesses run out, or until they win.
-		while (wrongGuesses < N_GUESSES && !win()) {
+		while (wrongGuesses < n_Guesses && !win()) {
 			play();
 		}
 
@@ -189,7 +191,7 @@ public class Extension_Hangman3 extends ConsoleProgram {
 			println("You win.");
 			println("The word was " + answer + ".");
 		}
-		if (wrongGuesses == N_GUESSES) {
+		if (wrongGuesses == n_Guesses) {
 			turnsLeft --; // Player loses one turn.
 			canvas.remove(karel);
 			canvas.add(karelFlipped, canvas.getWidth() * 0.5 - KAREL_SIZE * 0.5, KAREL_Y);
@@ -266,13 +268,13 @@ public class Extension_Hangman3 extends ConsoleProgram {
 		linesBreak.clear();
 		
 		double x = parachute.getX();
-		double deltaX = PARACHUTE_WIDTH / (N_GUESSES - 1);
+		double deltaX = PARACHUTE_WIDTH / (n_Guesses - 1);
 		double y1 = parachute.getY() + PARACHUTE_HEIGHT;
 		double x2 = canvas.getWidth() * 0.5;
 		double y2 = karel.getY();
 
 		// Draw seven lines using the coordinates and intervals set above.
-		for (int i = 0; i < N_GUESSES; i++) {
+		for (int i = 0; i < n_Guesses; i++) {
 			GLine line = new GLine(x + deltaX * i, y1, x2, y2);
 			canvas.add(line); // add lines to canvas.
 			lines.add(line); // add lines to arraylist "lines".
@@ -282,13 +284,11 @@ public class Extension_Hangman3 extends ConsoleProgram {
 		// add the lines to a different arraylist "linesBreak",
 		// rearranging the order into the right one in which they'll break,
 		// so that the rightmost line breaks first, then the leftmost one, etc.
-		linesBreak.add(lines.get(6)); // linesBreak(0)
-		linesBreak.add(lines.get(0)); // linesBreak(1)
-		linesBreak.add(lines.get(5)); // etc...
-		linesBreak.add(lines.get(1));
-		linesBreak.add(lines.get(4));
-		linesBreak.add(lines.get(2));
-		linesBreak.add(lines.get(3));
+		for (int i = 0; i <= n_Guesses / 2; i ++){
+			linesBreak.add(lines.get(n_Guesses - 1 - i));// linesBreak(0)
+			linesBreak.add(lines.get(i));// linesBreak(1)
+		}
+
 
 	}
 
@@ -425,7 +425,7 @@ public class Extension_Hangman3 extends ConsoleProgram {
 			}
 		}
 		
-		boolean giveHint = n_CorrectGuesses <= guess.length() / 2 && wrongGuesses == N_GUESSES - 2;
+		boolean giveHint = n_CorrectGuesses <= guess.length() / 2 && wrongGuesses == n_Guesses - 2;
 		
 		if (giveHint && hint == 0){
 			
@@ -440,13 +440,13 @@ public class Extension_Hangman3 extends ConsoleProgram {
 			println("Your word now looks like this: " + guess);
 			guessLabel.setLabel(guess);
 			
-			println("You have " + (N_GUESSES - wrongGuesses) + " guess(es) left.");
+			println("You have " + (n_Guesses - wrongGuesses) + " guess(es) left.");
 			
 		} else {
 
 			// If no hint is given, print regular messages.
 			println("Your word now looks like this: " + guess);
-			println("You have " + (N_GUESSES - wrongGuesses) + " guess(es) left.");
+			println("You have " + (n_Guesses - wrongGuesses) + " guess(es) left.");
 		}
 		
 		
