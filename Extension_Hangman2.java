@@ -428,7 +428,9 @@ public class Extension_Hangman2 extends ConsoleProgram {
 		
 		if (giveHint && hint == 0){
 			
-			println ("Are you stuck? Here is a hint for you.");
+			pause(PRINTLN_DELAY);
+			println ("Are you stuck? Here is a HINT for you.");
+			pause(PRINTLN_DELAY);
 			// Randomly give a char that has not been guessed by the user.
 			int randomIndex = rg.nextInt(indicesUnguessed.size());
 			guess = guess.substring(0, randomIndex) + answer.charAt(randomIndex) + guess.substring(randomIndex + 1);
@@ -438,6 +440,7 @@ public class Extension_Hangman2 extends ConsoleProgram {
 			guessLabel.setLabel(guess);
 			
 			println("You have " + (N_GUESSES - wrongGuesses) + " guess(es) left.");
+			
 		} else {
 
 			// If no hint is given, print regular messages.
