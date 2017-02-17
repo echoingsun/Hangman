@@ -208,7 +208,13 @@ public class Extension_Hangman3 extends ConsoleProgram {
 
 	private void showTurnsLeft() {
 		if (turnsLeft == G_TURNS){
-			println("You are now in game one.");
+			if (gamesWon == 0){
+				println("You are now in game one.");
+			} 
+			if (gamesWon == 1){
+				println("Good job on game one. Ready to start the second one?");
+			}
+			
 		} else if (turnsLeft < G_TURNS && turnsLeft > 1){
 			println("Now you can play " + turnsLeft + " more times.");
 		} else if (turnsLeft ==1){
