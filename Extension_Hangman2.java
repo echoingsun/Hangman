@@ -46,7 +46,7 @@ public class Extension_Hangman2 extends ConsoleProgram {
 	/* The total number of turns a player can play */
 	private static final int G_TURNS = 3;
 	/* Time interval between printing one line and another */
-	private static final int PRINTLN_DELAY = 400;
+	private static final int PRINTLN_DELAY = 500;
 	/* Time interval between one game and another */
 	private static final int GAME_DELAY = 3000;
 	/* Time interval of karel falling */
