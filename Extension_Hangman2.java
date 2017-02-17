@@ -6,6 +6,7 @@
  * (1) Add sound effects.
  * (2) Allow player to play G_TURNS of games.
  * (3) Karel free falls when player loses all the games.
+ * (4) Hint available after the 5th guess and when player still hasn't got half the word right.
  */
 
 import acm.graphics.*;
