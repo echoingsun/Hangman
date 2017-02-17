@@ -129,6 +129,7 @@ public class Extension_Hangman3 extends ConsoleProgram {
 	private void killKarel() {
 		while (true){
 			parachute.move(0, -FALL_SPEED);
+			pause(FALL_DELAY);
 			karelFlipped.move(0, FALL_SPEED);
 			pause(FALL_DELAY);
 		}		
