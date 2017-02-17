@@ -143,9 +143,11 @@ public class Extension_Hangman3 extends ConsoleProgram {
 		pause(PRINTLN_DELAY);
 		println("In each game, you will have " + N_GUESSES + " chances to guess.");
 		pause(PRINTLN_DELAY);
-		println("If you run out of guesses, you lose the game,");
+		println("For each game you win,");
 		pause(PRINTLN_DELAY);
-		println("and poor Karel will fall but be revived;");
+		println("the number of available guesses will reduce by 1.");
+		pause(PRINTLN_DELAY);
+		println("If you lose one game Karel will be revived;");
 		pause(PRINTLN_DELAY);
 		println("But if you lose all the lives...");
 		pause(PRINTLN_DELAY);
@@ -215,7 +217,8 @@ public class Extension_Hangman3 extends ConsoleProgram {
 				println("You are now in game one.");
 			} 
 			if (gamesWon == 1){
-				println("Good job on game one. Ready to start the second one?");
+				println("Good job on game one.");
+				println("Ready to start the second one?");
 			}
 			
 		} else if (turnsLeft < G_TURNS && turnsLeft > 1){
