@@ -460,9 +460,15 @@ public class Extension_Hangman3 extends ConsoleProgram {
 			pause(PRINTLN_DELAY);
 			println ("Are you stuck? Here is a HINT for you.");
 			pause(PRINTLN_DELAY);
-			// Randomly give a char that has not been guessed by the user.
+			
+			// Randomly generate an index from the indicesUnguessed arraylist.
 			int randomIndex = rg.nextInt(indicesUnguessed.size());
-			guess = guess.substring(0, randomIndex) + answer.charAt(randomIndex) + guess.substring(randomIndex + 1);
+			
+			// Get the number (which is i recorded through the for loop above) from the arraylist.
+			int i = indicesUnguessed.get(randomIndex);
+			
+			// Apply this i to string "answer" to reveal a hint
+			guess = guess.substring(0, i) + answer.charAt(i) + guess.substring(i + 1);
 			hint ++;
 			
 			println("Your word now looks like this: " + guess);
