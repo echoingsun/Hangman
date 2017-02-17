@@ -2,9 +2,9 @@
 /*
  * File: Extension_Hangman.java
  * ------------------
- * This program improves some UX of the game Hangman:
+ * IMPROVED FEATURES:*******************************************
  * (1) Add sound effects.
- * (2) Allow player to play G_TURNS of games.
+ * (2) Allow player to play G_TURNS of games. Won games do not count towards G_TURNS.
  * (3) Karel free falls when player loses all the games.
  * (4) Hint available after the 5th guess and when player still hasn't got half the word right.
  * (5) For each game player wins, reduce the N_GUESSES by 1 to increase difficulty.
@@ -85,7 +85,7 @@ public class Extension_Hangman3 extends ConsoleProgram {
 	private int hint = 0; // Holds the value of hints given per game.
 	private int gamesWon = 0; // Stores the value of games won by player out of G_TURNS.
 	private int n_Guesses = N_GUESSES; // This value will change if player wins games, to increase difficulty.
-	
+	private int n_GuessesMin = N_GUESSES / 2; // This value prevents available guesses to become <=1, as long as N_GUESSES is set larger than 2.
 
 	// Import and define the images to be shown on the canvas.
 	private GImage bg = new GImage("background.jpg");
@@ -164,8 +164,15 @@ public class Extension_Hangman3 extends ConsoleProgram {
 
 	private void playOneGame() {
 		
-		// Initialize the variables before each game:
-		n_Guesses = N_GUESSES - gamesWon;
+		// Initialize the variables before each game.
+		
+		// If user keeps winning, available guesses should not keep dropping.
+		if (N_GUESSES - gamesWon < n_GuessesMin ){
+			n_Guesses = n_GuessesMin;
+		} else if (N_GUESSES - gamesWon >= n_GuessesMin){
+			n_Guesses = N_GUESSES - gamesWon;
+		}
+		
 		wrongGuesses = 0;
 		guess = ""; 
 		answer = ""; 
