@@ -80,6 +80,7 @@ public class Extension_Hangman2 extends ConsoleProgram {
 														// canvas.
 	private int turnsLeft = G_TURNS; // Shows how many more turns player can
 										// play.
+	private int hint = 0; // Holds the value of hints given per game.
 	
 
 	// Import and define the images to be shown on the canvas.
@@ -327,6 +328,9 @@ public class Extension_Hangman2 extends ConsoleProgram {
 	 * (instance) variables.
 	 */
 	private void play() {
+		
+		checkIfToGiveHint();
+		
 		int len = answer.length();
 
 		// charCount changes if the player's guess matches at least one
@@ -400,6 +404,15 @@ public class Extension_Hangman2 extends ConsoleProgram {
 		}
 
 	}
+
+	private void checkIfToGiveHint() {
+		// Set two conditions to decide if to given the player a hint.
+		// (1) When player arrives at the third last guess;
+		// (2) And player still hasn't got half the word right.
+		// Hint is only given once per game.
+		
+	}
+
 
 	/**
 	 * Method: Get Random Word ------------------------- This method returns a
