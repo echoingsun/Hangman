@@ -143,24 +143,24 @@ public class Extension_Hangman extends ConsoleProgram {
 
 	private void introduce() {
 		println("Welcome to Hangman!");
-		
+		pause(PRINTLN_DELAY);
 		println("You will play " + G_TURNS + " games of Hangman.");
-		
+		pause(PRINTLN_DELAY);
 		println("In each game, you will have " + N_GUESSES + " chances to guess.");
-		
+		pause(PRINTLN_DELAY);
 		println("For each game you win,");
-		
+		pause(PRINTLN_DELAY);
 		println("the number of available guesses will reduce by 1.");
-		
+		pause(PRINTLN_DELAY);
 		println("If you lose one game Karel will be revived;");
-		
+		pause(PRINTLN_DELAY);
 		println("But if you lose all the lives...");
-		
+		pause(PRINTLN_DELAY);
 		println("T_T..............");
-		
+		pause(PRINTLN_DELAY);
 		println("Save Karel!");	
 		println("");
-		
+		pause(PRINTLN_DELAY);
 	}
 
 	private void playOneGame() {
