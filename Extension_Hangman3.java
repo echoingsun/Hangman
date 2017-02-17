@@ -189,8 +189,10 @@ public class Extension_Hangman3 extends ConsoleProgram {
 
 		// Define the events on a win or a failure.
 		if (win()) {
+			pause(PRINTLN_DELAY);
 			println("You win.");
 			println("The word was " + answer + ".");
+			println("");
 		}
 		if (wrongGuesses == n_Guesses) {
 			turnsLeft --; // Player loses one turn.
