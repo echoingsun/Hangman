@@ -131,7 +131,8 @@ public class Extension_Hangman3 extends ConsoleProgram {
 		canvas.remove(wrongCharsLabel);
 		canvas.remove(guessLabel);
 		
-		while (true){
+		boolean outOfBorder = parachute.getY() + parachute.getHeight() < 0 && karelFlipped.getY() > canvas.getHeight();
+		while (!outOfBorder){
 			parachute.move(0, -FALL_SPEED);
 			pause(FALL_DELAY);
 			karelFlipped.move(0, FALL_SPEED);
