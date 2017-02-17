@@ -7,6 +7,7 @@
  * (2) Allow player to play G_TURNS of games.
  * (3) Karel free falls when player loses all the games.
  * (4) Hint available after the 5th guess and when player still hasn't got half the word right.
+ * (5) For each game player wins, reduce the N_GUESSES by 1 to increase difficulty.
  */
 
 import acm.graphics.*;
