@@ -83,7 +83,7 @@ public class Extension_Hangman3 extends ConsoleProgram {
 										// play.
 	private int hint = 0; // Holds the value of hints given per game.
 	private int gamesWon = 0; // Stores the value of games won by player out of G_TURNS.
-	private int n_Guesses = N_GUESSES - gamesWon; // This value will change if player wins games, to increase difficulty.
+	private int n_Guesses = N_GUESSES; // This value will change if player wins games, to increase difficulty.
 	
 
 	// Import and define the images to be shown on the canvas.
