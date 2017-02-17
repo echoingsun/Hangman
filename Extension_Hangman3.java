@@ -157,6 +157,7 @@ public class Extension_Hangman3 extends ConsoleProgram {
 	private void playOneGame() {
 		
 		// Initialize the variables before each game:
+		n_Guesses = N_GUESSES - gamesWon;
 		wrongGuesses = 0;
 		guess = ""; 
 		answer = ""; 
