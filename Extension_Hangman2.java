@@ -158,6 +158,7 @@ public class Extension_Hangman2 extends ConsoleProgram {
 		guess = ""; 
 		answer = ""; 
 		wrongChars = ""; 
+		hint = 0;
 		canvas.removeAll(); // Wipe everything out of the previous game.
 		
 		setUp();// Set up the canvas and all the images needed for the game.
