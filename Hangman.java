@@ -178,13 +178,10 @@ public class Hangman extends ConsoleProgram {
 		// add the lines to a different arraylist "linesBreak",
 		// rearranging the order into the right one in which they'll break,
 		// so that the rightmost line breaks first, then the leftmost one, etc.
-		linesBreak.add(lines.get(6)); // linesBreak(0)
-		linesBreak.add(lines.get(0)); // linesBreak(1)
-		linesBreak.add(lines.get(5)); // etc...
-		linesBreak.add(lines.get(1));
-		linesBreak.add(lines.get(4));
-		linesBreak.add(lines.get(2));
-		linesBreak.add(lines.get(3));
+		for (int i = 0; i <= N_GUESSES / 2; i ++){
+			linesBreak.add(lines.get(N_GUESSES - 1 - i));// linesBreak(0)
+			linesBreak.add(lines.get(i));// linesBreak(1)
+		}
 		
 		
 	}
