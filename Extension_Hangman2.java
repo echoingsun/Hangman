@@ -100,6 +100,7 @@ public class Extension_Hangman2 extends ConsoleProgram {
 
 	// Create the Arraylist and import the lexicon into it.
 	private ArrayList<String> lexicon = new ArrayList<String>();
+	
 
 	/***********************************************************
 	 * Methods *
@@ -411,19 +412,25 @@ public class Extension_Hangman2 extends ConsoleProgram {
 		// (2) And player still hasn't got half the word right.
 		// Hint is only given once per game.
 		int n_CorrectGuesses = 0;
+		
+		// Create an arraylist to store the indices of the chars unguessed.
+		ArrayList<Integer> indicesUnguessed = new ArrayList<Integer>();
 				
 		for (int i = 0; i < guess.length(); i++){
 			char ch = guess.charAt(i);
 			if (ch != '-'){
-				n_CorrectGuesses ++;
+				n_CorrectGuesses ++;				
+			} else {
+				indicesUnguessed.add(i);
 			}
 		}
 		
 		boolean giveHint = n_CorrectGuesses <= guess.length() / 2 && wrongGuesses == N_GUESSES - 2;
 		
 		if (giveHint && hint == 0){
-			// Give a char that has not been guessed by the user.
-			
+			// Randomly give a char that has not been guessed by the user.
+			int randomIndex = rg.nextInt(indicesUnguessed.size());
+			guess = guess.substring(0, randomIndex) + answer.charAt(randomIndex) + guess.substring(randomIndex + 1);
 			hint ++;
 		}
 		
