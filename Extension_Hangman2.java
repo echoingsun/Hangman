@@ -410,6 +410,23 @@ public class Extension_Hangman2 extends ConsoleProgram {
 		// (1) When player arrives at the third last guess;
 		// (2) And player still hasn't got half the word right.
 		// Hint is only given once per game.
+		int n_CorrectGuesses = 0;
+				
+		for (int i = 0; i < guess.length(); i++){
+			char ch = guess.charAt(i);
+			if (ch != '-'){
+				n_CorrectGuesses ++;
+			}
+		}
+		
+		boolean giveHint = n_CorrectGuesses <= guess.length() / 2 && wrongGuesses == N_GUESSES - 2;
+		
+		if (giveHint && hint == 0){
+			// Give a char that has not been guessed by the user.
+			
+			hint ++;
+		}
+		
 		
 	}
 
